@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Gato HTML</title>
+    <link rel="stylesheet" href="clase.css">
+</head>
+
+<body>
+    <div>
+    <p>Gato</p>
+    </div>
+<div>
+    <img onclick="alerta()" src="https://www.marthadebayle.com/wp-content/uploads/2023/06/de-donde-vienen-los-gatos.jpg"
+     width="20%" height="auto">
+</div>
+<br />
+    <h1>REGISTRA A TU GATO</h1>
+
+    <form onsubmit="enviarForm(event)">
+        <div>
+            <label id="Nombre">Nombre: </label>
+            <input label="Nombre" placeholder="Pon el nombre aqui" id="inputNombre"type="text" minlength="3"  required />
+        </div>
+        <br />
+        <div>
+            <label>Peso (kg): </label>
+            <input id="inputPeso" type="number" min="3" max="5" />
+        </div>
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+<script src="clase.js" ></script>
+
+</html>
