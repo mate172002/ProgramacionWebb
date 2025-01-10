@@ -5,6 +5,18 @@ const getList = async () => {
     return result;
 };
 
+const postCreate = async ()=>{
+    const result = await modelTeacher.create(data);
+    return result;
+};
+
+const postUpdate = async (data) => {
+    const result = await modelTeacher.update(data, { where: { id: data.id}});
+    return result;
+};
+
 module.exports = {
-    getList,
+  getList,
+  postCreate,
+  postUpdate
 };

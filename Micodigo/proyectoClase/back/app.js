@@ -1,14 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-const sequelize = require("./database/connec");
 var app = express();
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 
-var app = express();
+const sequelize = require("./database/connect");
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -16,14 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 var testsRouter = require("./routes/test.routes");
 var studentRouter = require("./routes/student.routes");
-var teacherRouter = require("./routes/student.routes");
-
+var teacherRouter = require("./routes/teacher.routes");
 app.use("/test",testsRouter);
 app.use("/student",studentRouter);
-app.use("/teacher",teacherRouter);
-
+app.use("/teacher", teacherRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
